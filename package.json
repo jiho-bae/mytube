@@ -1,0 +1,11 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Studying Youtube VanillaJS and NodeJS",
+  "main": "index.js",
+  "author": "Jiho Bae",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

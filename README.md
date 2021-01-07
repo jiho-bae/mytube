@@ -4,7 +4,7 @@ Studying Youtube VanillaJS and NodeJS
 
 ## Pages:
 
-- [ ] Home
+- [ ] Home (Doing)
 - [x] Join
 - [x] Login
 - [x] Search

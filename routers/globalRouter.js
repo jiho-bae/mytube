@@ -11,14 +11,21 @@ import {
 
 const globalRouter = express.Router();
 
+// Join
 globalRouter.get(routes.join, getJoin);
 globalRouter.post(routes.join, postJoin);
 
+// Login
 globalRouter.get(routes.login, getLogin);
 globalRouter.post(routes.login, postLogin);
 
+// Home
 globalRouter.get(routes.home, home);
+
+// Search
 globalRouter.get(routes.search, search);
+
+// Logout
 globalRouter.get(routes.logout, logout);
 
 export default globalRouter;

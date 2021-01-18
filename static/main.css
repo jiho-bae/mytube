@@ -272,40 +272,6 @@ input[type=submit] {
 .header .header__wrapper .header__column ul a {
   color: white;
 }
-.header .header__wrapper .header__column form input {
-  width: 100%;
-  padding: 7px 10px;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  font-size: 14px;
-  color: #444444;
-  font-weight: 600;
-}
-.header .header__wrapper .header__column form input::-webkit-input-placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
-.header .header__wrapper .header__column form input:-moz-placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
-.header .header__wrapper .header__column form input::-moz-placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
-.header .header__wrapper .header__column form input:-ms-input-placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
-.header .header__wrapper .header__column form input::-ms-input-placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
-.header .header__wrapper .header__column form input::placeholder {
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.8);
-}
 
 .footer {
   margin: 50px 0;
@@ -409,6 +375,7 @@ input[type=submit] {
           align-items: center;
 }
 .form-container .fileUpload label {
+  width: 70px;
   font-weight: 300;
   margin-right: 10px;
 }
@@ -471,6 +438,10 @@ input[type=submit] {
 .videoBlock video {
   margin-bottom: 10px;
   max-width: 100%;
+}
+.videoBlock .videoBlock__title,
+.videoBlock .videoBlock__views {
+  color: black;
 }
 .videoBlock .videoBlock__title {
   font-size: 18px;

@@ -3,7 +3,7 @@ extends layouts/main
 block content
      .form-container
          form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
-             div.fileUpload
+             .fileUpload
                 label(for="file") Video File
                 input(type="file", id="file", name="videoFile", required=true, accept="video/*")
              input(type="text", placeholder="Title", name="title", required=true)

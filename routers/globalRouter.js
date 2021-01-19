@@ -8,16 +8,17 @@ import {
   getLogin,
   postLogin,
 } from "../controllers/userController";
+import {onlyPublic} from "../middlewares";
 
 const globalRouter = express.Router();
 
 // Join
-globalRouter.get(routes.join, getJoin);
-globalRouter.post(routes.join, postJoin, postLogin);
+globalRouter.get(routes.join, onlyPublic, getJoin);
+globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
 
 // Login
-globalRouter.get(routes.login, getLogin);
-globalRouter.post(routes.login, postLogin);
+globalRouter.get(routes.login, onlyPublic, getLogin);
+globalRouter.post(routes.login, onlyPublic, postLogin);
 
 // Home
 globalRouter.get(routes.home, home);

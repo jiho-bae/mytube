@@ -436,9 +436,12 @@ input[type=submit] {
   background-color: black;
   color: white;
 }
-.social-login .social-login--facebook {
-  background-color: #3a5998;
+.social-login .social-login--kakao {
+  background-color: #fee100;
   color: white;
+}
+.social-login .social-login--kakao i {
+  color: black;
 }
 
 .videoBlock video {

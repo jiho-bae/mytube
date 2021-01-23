@@ -26,6 +26,11 @@
     .video__description {
       font-size: 16px;
     }
+    .video__author {
+      a {
+        color: #3498db;
+      }
+    }
   }
   .video__comment {
     margin-top: 25px;

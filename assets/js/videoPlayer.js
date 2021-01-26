@@ -7,6 +7,13 @@ const totalTime = document.getElementById("totalTime");
 const videoPlayer = document.querySelector("video");
 const volumeRange = document.getElementById("jsVolume");
 
+const registerView = () => {
+  const videoId = window.location.href.split("/videos/")[1];
+  fetch(`/api/${videoId}/view`, {
+    method:"POST"
+  });
+}
+
 function exitFullScreen() {
    fullScrnBtn.innerHTML = '<i class="fas fa-expand"></i>';
    fullScrnBtn.addEventListener("click", goFullScreen);
@@ -86,6 +93,7 @@ function setTotalTime(){
 }
 
 function handleEnded(){
+  registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }

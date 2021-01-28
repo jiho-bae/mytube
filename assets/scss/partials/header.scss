@@ -10,9 +10,18 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     .header__column {
+      &:first-child a {
+        span {
+          font-size: 17px;
+          font-weight: 500;
+          position: absolute;
+          top: 12.5px;
+        }
+      }
       i {
         color: white;
         font-size: 30px;
+        margin-right: 5px;
       }
       &:nth-child(2) {
         justify-self: center;

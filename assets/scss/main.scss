@@ -53,3 +53,10 @@ button,
 input[type="submit"] {
   cursor: pointer;
 }
+
+.showingOff {
+  display: none;
+}
+.showingOn {
+  display: inline-block;
+}

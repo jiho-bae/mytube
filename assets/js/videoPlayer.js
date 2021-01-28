@@ -70,7 +70,7 @@ const formatDate = seconds => {
     let hours = Math.floor(secondsNumber / 3600);
     let minutes = Math.floor((secondsNumber - hours * 3600) / 60);
     let totalSeconds = secondsNumber - hours * 3600 - minutes * 60;
- 
+
     if (hours < 10) {
       hours = `0${hours}`;
     }
@@ -80,8 +80,22 @@ const formatDate = seconds => {
     if (seconds < 10) {
          totalSeconds = `0${totalSeconds}`;
     }
-    return `${hours}:${minutes}:${totalSeconds}`;
+    if(hours < 1){
+      return `${minutes}:${totalSeconds}`;      
+    } else {
+      return `${hours}:${minutes}:${totalSeconds}`;
+    }
 };
+
+const setCurrentTime = seconds => {
+  const secondsNumber = parseInt(seconds, 10);
+  const hours = Math.floor(secondsNumber / 3600);
+  if(hours < 1){
+    return `00:00`;      
+  } else {
+    return `00:00:00`;
+  }
+}
 
 function getCurrentTime(){
     currentTime.innerHTML = formatDate(videoPlayer.currentTime);
@@ -90,6 +104,8 @@ function getCurrentTime(){
 function setTotalTime(){
     const totalTimeStr = formatDate(videoPlayer.duration);
     totalTime.innerHTML = totalTimeStr;
+    const curTimeStr = setCurrentTime(videoPlayer.duration);
+    currentTime.innerHTML = curTimeStr;
 }
 
 function handleEnded(){
@@ -111,6 +127,7 @@ function handleDrag(event){
     volumeBtn.innerHTML = '<i class="fas fa-volume-off"></i>'
   }
 }
+
 
 function init(){
     videoPlayer.volume=0.5;

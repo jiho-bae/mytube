@@ -18,17 +18,27 @@
     }
     .video__title {
       font-size: 22px;
-      font-weight: 300;
+      font-weight: 600;
     }
     .video__views {
       font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
     }
     .video__description {
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: 400;
     }
     .video__author {
-      a {
-        color: #3498db;
+      display: flex;
+      align-items: center;
+      .video__author-link {
+        margin-left: 5px;
+        padding: 5px 7px;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+        a {
+          color: #3498db;
+        }
       }
     }
   }

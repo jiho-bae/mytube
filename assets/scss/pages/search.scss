@@ -1,0 +1,27 @@
+.search__header {
+  h3 {
+    font-size: 20px;
+    span {
+      margin-left: 5px;
+      font-size: 23px;
+      color: rgba(0, 0, 0, 0.8);
+      font-weight: 600;
+    }
+  }
+}
+.search__videos {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  h5 {
+    display: block;
+    margin-top: 15px;
+    color: $red;
+    font-size: 17px;
+  }
+  .videoBlock {
+    .videoBlock__thumbnail {
+      width: 400px;
+      height: 250px;
+    }
+  }
+}

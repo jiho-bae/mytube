@@ -21,4 +21,12 @@
       margin-bottom: 20px;
     }
   }
+  .uploaded-videos {
+    .videoBlock {
+      .videoBlock__thumbnail {
+        width: 400px;
+        height: 250px;
+      }
+    }
+  }
 }

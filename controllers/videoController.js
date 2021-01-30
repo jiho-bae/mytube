@@ -19,8 +19,11 @@ export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
+  console.log(req.query);
   let videos = [];
   try {
+    if (searchingBy === '')
+      res.redirect(routes.home);
     videos = await Video.find({
       title: { $regex: searchingBy, $options: "i" },
     });

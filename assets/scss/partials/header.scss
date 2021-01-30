@@ -15,7 +15,7 @@
           font-size: 17px;
           font-weight: 500;
           position: absolute;
-          top: 12.5px;
+          top: 11.5px;
         }
       }
       i {
@@ -26,6 +26,27 @@
       &:nth-child(2) {
         justify-self: center;
         width: 100%;
+        form {
+          display: flex;
+          align-items: center;
+          input {
+            border-radius: 0;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+          }
+          button {
+            border-radius: 0;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            outline: none;
+            width: 50px;
+            height: 100%;
+            background-color: $black;
+          }
+          i {
+            font-size: 14px;
+          }
+        }
       }
       &:last-child {
         justify-self: end;

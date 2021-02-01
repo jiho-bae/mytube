@@ -19,7 +19,6 @@ export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req;
-  console.log(req.query);
   let videos = [];
   try {
     if (searchingBy === '')
@@ -27,6 +26,7 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: { $regex: searchingBy, $options: "i" },
     });
+    console.log(videos);
   } catch (error) {
     console.log(error);
   }

@@ -111,12 +111,22 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const getMe = async (req, res) => {
+  const {user: {id}} = req;
+  try{
+  const user = await User.findById(id).populate('videos');
+  res.render("userDetail", { pageTitle: "User Detail", user});  
+  } catch(error){
+  console.log(error);
+  res.redirect(routes.home);
+  }
+};
 
 export const userDetail = async (req, res) =>{
   const {params: {id}} = req;
   try{
     const user = await User.findById(id).populate('videos');
-    console.log(user.videos);
+    console.log(user);
     res.render("userDetail", { pageTitle: "User Detail", user }); 
   } catch(error){
     res.redirect(routes.home);
@@ -124,9 +134,9 @@ export const userDetail = async (req, res) =>{
 };
 // EditProfile
 
-export const getEditProfile = (req, res) =>
+export const getEditProfile = (req, res) =>{
   res.render("editProfile", { pageTitle: "Edit Profile" });
-
+}
 export const postEditProfile = async (req, res) => {
   const{
     body: {name, email},

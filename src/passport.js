@@ -24,7 +24,7 @@ passport.use(
     },
     kakaoLoginCallback
     )
-); 
+);  
 
 passport.serializeUser(function (user, done) {
     done(null, user);

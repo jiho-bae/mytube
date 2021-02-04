@@ -103,6 +103,8 @@ dist
 package-lock.json
 uploads
 static
+build
+.DS_Store
 
 # DynamoDB Local files
 .dynamodb/
@@ -119,3 +121,4 @@ static
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+

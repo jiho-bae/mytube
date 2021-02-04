@@ -799,9 +799,15 @@ input[type=submit] {
 .user-profile .user-profile__btns a:not(:last-child) {
   margin-bottom: 20px;
 }
+.user-profile .uploaded-videos .videoBlock {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.05);
+  margin: 10px 0px;
+  padding-bottom: 20px;
+}
 .user-profile .uploaded-videos .videoBlock .videoBlock__thumbnail {
-  width: 400px;
-  height: 250px;
+  width: 300px;
+  height: 200px;
+  margin-bottom: 0px;
 }
 
 .search__header h3 {

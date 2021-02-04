@@ -115,7 +115,8 @@ export const getMe = async (req, res) => {
   const {user: {id}} = req;
   try{
   const user = await User.findById(id).populate('videos');
-  res.render("userDetail", { pageTitle: "User Detail", user});  
+  console.log(user);
+  res.render("userDetail", { pageTitle: "My Info", user});  
   } catch(error){
   console.log(error);
   res.redirect(routes.home);
@@ -127,7 +128,7 @@ export const userDetail = async (req, res) =>{
   try{
     const user = await User.findById(id).populate('videos');
     console.log(user);
-    res.render("userDetail", { pageTitle: "User Detail", user }); 
+    res.render("userDetail", { pageTitle: "asdfer", user }); 
   } catch(error){
     res.redirect(routes.home);
   }
@@ -147,7 +148,7 @@ export const postEditProfile = async (req, res) => {
     await User.findByIdAndUpdate(req.user.id, {
       name,
       email,
-      avatarUrl: file ? file.path : req.user.avatarUrl
+      avatarUrl: file ? file.location : req.user.avatarUrl
     });
     res.redirect(routes.me);
   } catch(error){

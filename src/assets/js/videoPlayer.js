@@ -109,7 +109,7 @@ async function setTotalTime() {
     if (!isFinite(videoPlayer.duration)) {
       const blob = await fetch(videoPlayer.src).then((response) => response.blob());
       duration = await getBlobDuration(blob);
-      console.log("a", duration);
+      console.log("ab", duration);
     } else {
       duration = videoPlayer.duration;
       console.log("b", duration);

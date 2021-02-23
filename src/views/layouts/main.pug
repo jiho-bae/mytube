@@ -9,18 +9,18 @@ html
     body
         if messages.error
             +message({
-                type:"error",
-                text:mesasges.error
+                type:'error',
+                text:messages.error
             })
-        else if messages.info 
+        else if messages.info
             +message({
-                 type:"info",
-                 text:messages.info
-             })
+                type:'info',
+                text:messages.info
+            })
         else if messages.success 
             +message({
-                type:"success",
-                text:mesasges.success
+                type:'success',
+                text:messages.success
             })
         header
             include ../partials/header

@@ -113,6 +113,7 @@ async function setTotalTime() {
     const curTimeStr = setCurrentTime(duration);
     currentTime.innerHTML = curTimeStr;
     setInterval(getCurrentTime, 1000);
+    console.log(duration);
   } catch (error) {
     console.log(error);
   }

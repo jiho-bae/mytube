@@ -4,6 +4,9 @@
   "description": "Studying Youtube VanillaJS and NodeJS",
   "author": "Jiho Bae",
   "license": "ISC",
+  "engines": {
+    "node": "15.x"
+  },
   "dependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.10",

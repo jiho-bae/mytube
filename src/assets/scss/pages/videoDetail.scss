@@ -14,23 +14,27 @@
     .video__views,
     .video__description {
       display: block;
-      margin-bottom: 15px;
     }
     .video__title {
+      margin-bottom: 10px;
       font-size: 22px;
       font-weight: 600;
     }
     .video__views {
+      margin-bottom: 30px;
       font-size: 14px;
       color: rgba(0, 0, 0, 0.5);
     }
     .video__description {
-      font-size: 17px;
+      margin-bottom: 25px;
+      font-size: 15px;
       font-weight: 400;
     }
     .video__author {
       display: flex;
       align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       .video__author-link {
         margin-left: 5px;
         padding: 5px 7px;
@@ -43,20 +47,90 @@
     }
   }
   .video__comment {
-    margin-top: 25px;
+    width: 100%;
+    max-width: 650px;
+    margin: 25px 0px;
     .video__comment-number {
       font-size: 18px;
     }
+    .add__comment {
+      display: flex;
+      width: 100%;
+      input {
+        width: 650px;
+        max-width: 650px;
+        border-radius: 0px;
+        border-bottom: 2px solid $black001;
+        background-color: #f5f5f5;
+        transition: all 0.3s linear;
+        &::placeholder {
+          color: $black001;
+        }
+        &:focus {
+          border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+        }
+      }
+      button {
+        background-color: #cccccc;
+        margin-left: 5px;
+        width: 90px;
+        text-align: center;
+        transition: all 0.3s linear;
+        &:hover {
+          background-color: #3498db;
+        }
+      }
+    }
     .video__comments-list {
+      width: 100%;
       margin-top: 50px;
       li {
-        background-color: #3498db;
-        color: white;
-        padding: 15px 30px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 15px;
+          align-self: flex-start;
+        }
+        .u-comment {
+          width: 100%;
+          color: rgba(0, 0, 0, 0.7);
+          border-radius: 20px;
+          border-bottom-left-radius: 0px;
+          flex-wrap: nowrap;
+          a {
+            width: min-content;
+            color: black;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 15px;
+          }
+          p {
+            width: 100%;
+          }
+        }
+        span:first-child {
+          display: inline-block;
+          padding: 10px 30px;
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 15px;
+          border-bottom-left-radius: 0px;
+          margin-right: 5px;
+        }
+        span:last-child {
+          align-self: flex-end;
+          font-size: 8px;
+        }
         &:not(:last-child) {
           margin-bottom: 15px;
+        }
+      }
+      .delComment {
+        .delCommentBtn {
+          background-color: transparent;
+          color: rgba(0, 0, 0, 0.5);
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }

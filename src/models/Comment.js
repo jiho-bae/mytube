@@ -9,10 +9,12 @@ const CommentSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  creator : {
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"User"
-  }
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  avatarUrl: String,
+  name: String,
 });
 
 const model = mongoose.model("Comment", CommentSchema);

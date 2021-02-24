@@ -7,6 +7,7 @@ import {
   getUpload,
   postEditVideo,
   getEditVideo,
+  deleteComment,
 } from "../controllers/videoController";
 import { onlyPrivate, uploadVideo } from "../middlewares";
 
@@ -25,5 +26,8 @@ videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo);
 
 // DeleteVideo
 videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo);
+
+// DeleteComment
+videoRouter.get(routes.deleteComment(), onlyPrivate, deleteComment);
 
 export default videoRouter;

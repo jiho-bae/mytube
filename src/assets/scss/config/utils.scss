@@ -1,6 +1,21 @@
+.u-avatar,
+.u-commenter-avatar {
+  background-image: url("https://d1telmomo28umc.cloudfront.net/media/public/avatars/gobae-1610354539.jpg");
+  background-size: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 1);
+}
 .u-avatar {
   width: 80px;
   height: 80px;
-  background-color: $red;
-  border-radius: 50%;
+}
+.u-commenter-avatar {
+  min-width: 40px;
+  min-height: 40px;
+  width: 40px;
+  height: 40px;
+}
+.u-comment {
+  display: flex;
+  flex-direction: column;
 }

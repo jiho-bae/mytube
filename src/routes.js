@@ -20,6 +20,7 @@ const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
+const DELETE_COMMENT = "/:id/deleteComment";
 
 // Github
 
@@ -82,8 +83,15 @@ const routes = {
   kakao: KAKAO,
   kakaoCallback: KAKAO_CALLBACK,
   api: API,
-  registerView : REGISTER_VIEW,
-  addComment:ADD_COMMENT,
+  registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT,
+  deleteComment: (videoId, commentId) => {
+    if (videoId && commentId) {
+      return `/videos/${commentId}/deleteComment`;
+    } else {
+      return DELETE_COMMENT;
+    }
+  },
 };
 
 export default routes;

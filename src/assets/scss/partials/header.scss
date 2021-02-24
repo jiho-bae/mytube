@@ -16,6 +16,9 @@
           font-weight: 500;
           position: absolute;
           top: 11.5px;
+          &:hover {
+            color: black;
+          }
         }
       }
       i {
@@ -55,11 +58,16 @@
         display: flex;
         font-weight: 600;
         text-transform: uppercase;
+        a {
+          color: white;
+        }
         li:not(:last-child) {
           margin-right: 15px;
         }
-        a {
-          color: white;
+        li:hover {
+          a {
+            color: black;
+          }
         }
       }
     }

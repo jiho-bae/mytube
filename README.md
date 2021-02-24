@@ -4,13 +4,13 @@ Studying Youtube VanillaJS and NodeJS
 
 ## Pages:
 
-- [x] Home
+- [ ] Home (Doing)
 - [x] Join
 - [x] Login
 - [x] Search
-- [x] User Detail
-- [x] Edit Profile
-- [x] Change Password
-- [x] Upload Video
-- [x] Video Detail
-- [x] Edit Video
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload Video
+- [ ] Video Detail
+- [ ] Edit Video

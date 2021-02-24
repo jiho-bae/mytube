@@ -36,21 +36,7 @@
     "pug": "^3.0.0",
     "util": "^0.12.3",
     "webpack": "^5.13.0",
-    "webpack-cli": "^4.3.1"
-  },
-  "scripts": {
-    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
-    "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
-    "build:assets": "cd src && WEBPACK_ENV=production webpack",
-    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
-    "copyAll": "cp -R src/static build && cp -R src/views build",
-    "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "prebuild": "rm -rf build",
-    "tunnel": "lt --port 4000",
-    "start": "PRODUCTION=true node build/init.js",
-    "prestart": "npm run build"
-  },
-  "devDependencies": {
+    "webpack-cli": "^4.3.1",
     "autoprefixer": "^10.2.1",
     "css-loader": "^5.0.1",
     "eslint": "^7.17.0",
@@ -65,5 +51,17 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.4",
     "sass-loader": "^10.1.1"
+  },
+  "scripts": {
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
+    "build:assets": "cd src && WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rm -rf build",
+    "tunnel": "lt --port 4000",
+    "start": "PRODUCTION=true node build/init.js",
+    "prestart": "npm run build"
   }
 }

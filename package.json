@@ -1,10 +1,6 @@
 {
   "name": "wetube",
   "version": "1.0.0",
-  "engines": {
-    "node": "15.x",
-    "npm": "7.x"
-  },
   "description": "Studying Youtube VanillaJS and NodeJS",
   "author": "Jiho Bae",
   "license": "ISC",

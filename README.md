@@ -14,3 +14,7 @@ Studying Youtube VanillaJS and NodeJS
 - [ ] Upload Video
 - [ ] Video Detail
 - [ ] Edit Video
+
+# Preview:
+
+Try it on [Heroku](https://wetubeeee1010.herokuapp.com/)

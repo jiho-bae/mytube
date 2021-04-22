@@ -3,12 +3,14 @@ header.header
         .header__column
             a(href=routes.home)
                 i.fab.fa-youtube
-                span MyTube
+                div
+                    span MyTube
         .header__column
             form(action=routes.search, method="get")
-                input(type="text", placeholder="검색", name="term")
-                button
-                    i.fas.fa-search
+                div
+                    input(type="text", placeholder="검색", name="term")
+                    button
+                        i.fas.fa-search
         .header__column
             ul
                 if !loggedUser

@@ -23,7 +23,7 @@
     .video__views {
       margin-bottom: 30px;
       font-size: 14px;
-      color: rgba(0, 0, 0, 0.5);
+      color: $grey;
     }
     .video__description {
       margin-bottom: 25px;
@@ -61,10 +61,11 @@
         max-width: 650px;
         border-radius: 0px;
         border-bottom: 2px solid $black001;
-        background-color: #f5f5f5;
+        background-color: transparent;
         transition: all 0.3s linear;
+        color: $white;
         &::placeholder {
-          color: $black001;
+          color: $grey;
         }
         &:focus {
           border-bottom: 2px solid rgba(0, 0, 0, 0.7);
@@ -93,13 +94,13 @@
         }
         .u-comment {
           width: 100%;
-          color: rgba(0, 0, 0, 0.7);
+          color: $white;
           border-radius: 20px;
           border-bottom-left-radius: 0px;
           flex-wrap: nowrap;
           a {
             width: min-content;
-            color: black;
+            color: $white;
             font-weight: 500;
             margin-bottom: 5px;
             font-size: 15px;

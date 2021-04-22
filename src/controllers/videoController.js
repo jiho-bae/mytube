@@ -26,7 +26,6 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: { $regex: searchingBy, $options: "i" },
     });
-    console.log(videos);
   } catch (error) {
     console.log(error);
   }
@@ -35,7 +34,8 @@ export const search = async (req, res) => {
 
 // Upload
 
-export const getUpload = (req, res) => res.render("upload", { pageTitle: "Upload" });
+export const getUpload = (req, res) =>
+  res.render("upload", { pageTitle: "Upload" });
 
 export const postUpload = async (req, res) => {
   const {
@@ -60,8 +60,9 @@ export const videoDetail = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const video = await Video.findById(id).populate("creator").populate("comments");
-    console.log(video);
+    const video = await Video.findById(id)
+      .populate("creator")
+      .populate("comments");
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     console.log(error);
@@ -77,7 +78,6 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-    console.log(typeof req.user.id, typeof video.creator);
     if (video.creator.toString() !== req.user.id) {
       throw Error();
     } else {

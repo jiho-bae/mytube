@@ -1,53 +1,72 @@
 .header {
-  background-color: $red;
+  padding: 0px 15px;
+  height: 100%;
+  background-color: $black;
   margin-bottom: 50px;
   .header__wrapper {
-    padding: 5px 0px;
-    width: 100%;
     margin: 0 auto;
-    max-width: 1200px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
+    height: 100%;
     .header__column {
-      &:first-child a {
-        span {
-          font-size: 17px;
-          font-weight: 500;
-          position: absolute;
-          top: 11.5px;
-          &:hover {
-            color: black;
+      height: 100%;
+      &:first-child {
+        a {
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          i {
+            color: $red;
+          }
+          div {
+            width: 80px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            span {
+              font-size: 17px;
+              font-weight: 500;
+              position: absolute;
+            }
           }
         }
       }
       i {
-        color: white;
-        font-size: 30px;
+        color: gray;
+        font-size: 25px;
         margin-right: 5px;
       }
       &:nth-child(2) {
         justify-self: center;
         width: 100%;
         form {
-          display: flex;
-          align-items: center;
-          input {
-            border-radius: 0;
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-          }
-          button {
-            border-radius: 0;
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            outline: none;
-            width: 50px;
-            height: 100%;
-            background-color: $black;
-          }
-          i {
-            font-size: 14px;
+          div {
+            padding: 10px 0px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            input {
+              width: 100%;
+              border-radius: 0;
+              color: rgba(0, 0, 0, 0.7);
+              font-weight: 400;
+            }
+            button {
+              border-radius: 0;
+              outline: none;
+              width: 60px;
+              height: 100%;
+              background-color: $btn-grey;
+            }
+            i {
+              font-size: 14px;
+            }
+            ::placeholder {
+              font-weight: 400;
+            }
           }
         }
       }
@@ -56,18 +75,21 @@
       }
       ul {
         display: flex;
+        align-items: center;
         font-weight: 600;
         text-transform: uppercase;
+        height: 100%;
+        li {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0px 10px;
+        }
         a {
           color: white;
         }
-        li:not(:last-child) {
-          margin-right: 15px;
-        }
         li:hover {
-          a {
-            color: black;
-          }
+          background-color: rgb(54, 54, 54);
         }
       }
     }

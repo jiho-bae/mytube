@@ -93,7 +93,6 @@ export const kakaoLoginCallback = async (_, __, profile, cb) => {
   } = profile;
   try {
     const user = await User.findOne({ email });
-    console.log(user);
     if (user) {
       user.kakaoId = id;
       user.save();
@@ -129,7 +128,6 @@ export const getMe = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id).populate("videos");
-    console.log(user);
     res.render("userDetail", { pageTitle: "My Info", user });
   } catch (error) {
     console.log(error);
@@ -143,7 +141,6 @@ export const userDetail = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id).populate("videos");
-    console.log(user);
     res.render("userDetail", { pageTitle: "asdfer", user });
   } catch (error) {
     req.flash("error", "User not found");
@@ -176,7 +173,8 @@ export const postEditProfile = async (req, res) => {
 
 // ChangePassword
 
-export const getChangePassword = (req, res) => res.render("changePassword", { pageTitle: "Change Password" });
+export const getChangePassword = (req, res) =>
+  res.render("changePassword", { pageTitle: "Change Password" });
 
 export const postChangePassword = async (req, res) => {
   const {

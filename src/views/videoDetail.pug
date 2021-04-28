@@ -9,29 +9,22 @@ block content
         .video__info
             if loggedUser && video.creator.id === loggedUser.id
                     a(href=routes.editVideo(video.id))
-                        button Edit Video
+                        button 수정하기
             h5.video__title=video.title
-            if video.views === 1
-                span.video__views 1 view
-            else
-                span.video__views #{video.views} views
+            span.video__views 조회수 #{video.views}회
             p.video__description=video.description
             .video__author 
-                |Uploaded by 
                 .video__author-link
                     a(href=routes.userDetail(video.creator.id))=video.creator.name
+                | 가 업로드
         .video__comment
-            if video.comments.length === 1
-                span.video__comment-number
-                    span#jsCommentNumber 1 
-                    |  comment
-            else
-                span.video__comment-number
-                    span#jsCommentNumber=video.comments.length
-                    |  comments
+            span.video__comment-number
+                | 댓글 
+                span#jsCommentNumber=video.comments.length
+                |개
             form.add__comment#jsAddComment
-                input(type="text", placeholder="Add a comment")
-                button Comment
+                input(type="text", placeholder="댓글 추가...")
+                button 댓글
             ul.video__comments-list#jsCommentList
                 each comment in video.comments.reverse()
                     li

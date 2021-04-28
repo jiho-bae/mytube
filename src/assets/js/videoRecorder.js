@@ -18,7 +18,7 @@ const stopRecording = () => {
   videoRecorder.stop();
   recordBtn.removeEventListener("click", stopRecording);
   recordBtn.addEventListener("click", getVideo);
-  recordBtn.innerHTML = "Start Recording";
+  recordBtn.innerHTML = "녹화하기";
 };
 
 const startRecording = () => {
@@ -37,11 +37,11 @@ const getVideo = async () => {
     videoPreview.srcObject = stream;
     videoPreview.muted = true;
     videoPreview.play();
-    recordBtn.innerHTML = "Stop Recording";
+    recordBtn.innerHTML = "녹화 중단";
     streamObject = stream;
     startRecording();
   } catch (error) {
-    recordBtn.innerHTML = "Cant record ";
+    recordBtn.innerHTML = "녹화 할 수 없음";
   } finally {
     recordBtn.removeEventListener("click", getVideo);
   }

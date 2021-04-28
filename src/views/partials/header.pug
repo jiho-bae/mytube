@@ -15,13 +15,13 @@ header.header
             ul
                 if !loggedUser
                     li
-                        a(href=routes.join) Join
+                        a(href=routes.join) 회원가입
                     li
-                        a(href=routes.login) Log In
+                        a(href=routes.login) 로그인
                 else
                     li
-                        a(href=`${routes.videos}${routes.upload}`) Upload
+                        a(href=`${routes.videos}${routes.upload}`) 업로드
                     li
-                        a(href=routes.me) Profile
+                        a(href=routes.me) 프로필
                     li
-                        a(href=routes.logout) Log Out
+                        a(href=routes.logout) 로그아웃

@@ -3,11 +3,11 @@ include mixins/videoBlock
 
 block content
     .search__header
-        h3 Searching for: 
+        h3 검색한 키워드 : 
             span #{searchingBy}
     .search__videos
         if videos.length == 0
-            h5 No Videos Found
+            h5 검색 결과가 없습니다.
         each item in videos
             +videoBlock({
                 title:item.title,

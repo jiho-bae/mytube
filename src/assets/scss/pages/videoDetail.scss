@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   .video__info {
+    padding: 0px 5px;
     width: 100%;
     max-width: 650px;
     margin-top: 25px;
@@ -47,6 +48,7 @@
     }
   }
   .video__comment {
+    padding: 0px 10px;
     width: 100%;
     max-width: 650px;
     margin: 25px 0px;
@@ -128,7 +130,7 @@
       .delComment {
         .delCommentBtn {
           background-color: transparent;
-          color: rgba(0, 0, 0, 0.5);
+          color: $white;
           &:hover {
             cursor: pointer;
           }

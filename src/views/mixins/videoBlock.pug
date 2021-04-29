@@ -2,5 +2,11 @@ mixin videoBlock(video = {})
 	.videoBlock
 		a(href=routes.videoDetail(video.id))
 			video.videoBlock__thumbnail(src=video.videoFile, controls=false)
-			h4.videoBlock__title=video.title
-			h6.videoBlock__views 조회수 #{video.views}
+			.video-info
+				.video-info__column
+					a(href=routes.userDetail(video.creator))
+						img.u-commenter-avatar(src=video.avatarUrl)
+				.video-info__column
+					h4.video-info__title= video.title.length > 30 ? `${video.title.substring(0,30)}...`: video.title
+					h5.video-info__name=video.name
+					h6.video-info__views 조회수 #{video.views}

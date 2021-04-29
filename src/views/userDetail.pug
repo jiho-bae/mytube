@@ -10,9 +10,9 @@ block content
             if user.id === loggedUser.id
                 .user-profile__btns
                     a(href=`/users${routes.editProfile}`)
-                        button ✏️ Edit Profile    
+                        button ✏️ 프로필 수정
                     a(href=`/users${routes.changePassword}`)
-                        button 🔒 Change Password
+                        button 🔒 비밀번호 변경
         .uploaded-videos
             each video in user.videos
                 +videoBlock({

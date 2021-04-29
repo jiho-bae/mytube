@@ -7,14 +7,24 @@
     max-width: 400px;
     max-height: 225px;
   }
-  .videoBlock__title,
-  .videoBlock__views {
-    padding: 0px 5px;
-    color: $white;
-  }
-  .videoBlock__title {
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 10px;
+  .video-info {
+    display: flex;
+    margin-bottom: 20px;
+    .video-info__column {
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+      .video-info__name,
+      .video-info__views {
+        color: $grey;
+        font-size: 13px;
+      }
+      .video-info__title {
+        color: $white;
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+    }
   }
 }

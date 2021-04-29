@@ -7,6 +7,7 @@ import { comment } from "postcss";
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
+    console.log(videos);
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -41,12 +42,15 @@ export const postUpload = async (req, res) => {
   const {
     body: { title, description },
     file: { location },
+    user,
   } = req;
   const newVideo = await Video.create({
     fileUrl: location,
     title,
     description,
-    creator: req.user.id,
+    creator: user.id,
+    avatarUrl: user.avatarUrl,
+    name: user.name,
   });
   req.user.videos.push(newVideo.id);
   req.user.save();

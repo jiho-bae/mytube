@@ -12,11 +12,13 @@ block content
                         button 수정하기
             h5.video__title=video.title
             span.video__views 조회수 #{video.views}회
-            p.video__description=video.description
             .video__author 
-                .video__author-link
+                .video__author-avatar
+                    a(href=routes.userDetail(video.creator.id))
+                        img.u-commenter-avatar(src=video.creator.avatarUrl)
+                .video__author-info
                     a(href=routes.userDetail(video.creator.id))=video.creator.name
-                | 가 업로드
+                    p.video__description=video.description
         .video__comment
             span.video__comment-number
                 | 댓글 
@@ -28,9 +30,15 @@ block content
             ul.video__comments-list#jsCommentList
                 each comment in video.comments.reverse()
                     li
-                        img.u-commenter-avatar(src=comment.avatarUrl)
+                        a(href=routes.userDetail(comment.creator))
+                            img.u-commenter-avatar(src=comment.avatarUrl)
                         div.u-comment
-                            a(href=routes.userDetail(comment.creator))=comment.name
+                            div.u-comment-id
+                                a(href=routes.userDetail(comment.creator))=comment.name
+                                if video.creator.id === String(comment.creator)
+                                    span.u-comment-creator 작성자
+                                else if loggedUser && video.creator.id === loggedUser.id
+                                    span.u-comment-me 내 댓글
                             p=comment.text
                         if loggedUser && comment.creator == loggedUser.id
                             a.delComment(href=routes.deleteComment(video.id,comment.id))

@@ -16,10 +16,11 @@
 .flash-message__container {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 13%;
+  width: 10%;
   z-index: 9;
   padding: 20px;
+  border-radius: 30px;
   text-align: center;
   animation: flashAnimation 2s ease-in-out forwards;
   &.error {

@@ -37,9 +37,9 @@ block content
                                 a(href=routes.userDetail(comment.creator))=comment.name
                                 if video.creator.id === String(comment.creator)
                                     span.u-comment-creator 작성자
-                                else if loggedUser && video.creator.id === loggedUser.id
+                                else if loggedUser && String(comment.creator) === loggedUser.id
                                     span.u-comment-me 내 댓글
                             p=comment.text
                         if loggedUser && comment.creator == loggedUser.id
                             a.delComment(href=routes.deleteComment(video.id,comment.id))
-                                button.delCommentBtn#jsDelBtn <i class="far fa-trash-alt"></i>
+                                button.delCommentBtn#jsDelCmtBtn <i class="far fa-trash-alt"></i>

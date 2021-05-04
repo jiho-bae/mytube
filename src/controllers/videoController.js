@@ -1,13 +1,11 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import Comment from "../models/Comment";
-import { comment } from "postcss";
 // Home
 
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
-    console.log(videos);
     res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     console.log(error);
@@ -184,5 +182,8 @@ export const deleteComment = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+    res.status(400);
+  } finally {
+    res.redirect("back");
   }
 };

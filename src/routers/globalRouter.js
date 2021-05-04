@@ -11,10 +11,12 @@ import {
   githubLogin,
   postGithubLogIn,
   getMe,
+  naverLogin,
+  postNaverLogIn,
   kakaoLogin,
   postKakaoLogIn,
 } from "../controllers/userController";
-import {onlyPrivate, onlyPublic} from "../middlewares";
+import { onlyPrivate, onlyPublic } from "../middlewares";
 
 const globalRouter = express.Router();
 
@@ -37,17 +39,29 @@ globalRouter.get(routes.logout, onlyPrivate, logout);
 
 // Github
 globalRouter.get(routes.github, githubLogin);
-globalRouter.get(routes.githubCallback, 
-  passport.authenticate('github', { failureRedirect: '/login' }), 
-  postGithubLogIn);
+globalRouter.get(
+  routes.githubCallback,
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  postGithubLogIn
+);
 
 globalRouter.get(routes.me, getMe);
+
+// Naver
+globalRouter.get(routes.naver, naverLogin);
+globalRouter.get(
+  routes.naverCallback,
+  passport.authenticate("naver", { failureRedirect: "/login" }),
+  postNaverLogIn
+);
 
 // kakao
 
 globalRouter.get(routes.kakao, kakaoLogin);
-globalRouter.get(routes.kakaoCallback,
-  passport.authenticate('kakao', {failureRedirect: '/login'}),
-  postKakaoLogIn);
+globalRouter.get(
+  routes.kakaoCallback,
+  passport.authenticate("kakao", { failureRedirect: "/login" }),
+  postKakaoLogIn
+);
 
 export default globalRouter;

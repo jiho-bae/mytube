@@ -75,6 +75,41 @@ export const postGithubLogIn = (req, res) => {
   res.redirect(routes.home);
 };
 
+// naver
+export const naverLogin = passport.authenticate("naver", {
+  successFlash: "환영합니다.",
+  failureFlash: "로그인 할 수 없습니다. 이메일 또는 비밀번호를 확인하세요.",
+});
+
+export const naverLoginCallback = async (_, __, profile, cb) => {
+  const {
+    id,
+    displayName: name,
+    _json: { profile_image: avatarUrl, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.naverId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      naverId: id,
+      avatarUrl,
+    });
+    return cb(null, newUser);
+  } catch (e) {
+    return cb(e);
+  }
+};
+
+export const postNaverLogIn = (req, res) => {
+  res.redirect(routes.home);
+};
+
 // kakao
 
 export const kakaoLogin = passport.authenticate("kakao", {

@@ -27,6 +27,11 @@ const DELETE_COMMENT = "/:id/deleteComment";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
+// Naver
+
+const NAVER = "/auth/naver";
+const NAVER_CALLBACK = "/auth/naver/callback";
+
 // Kakaotalk
 
 const KAKAO = "/auth/kakao";
@@ -80,6 +85,8 @@ const routes = {
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
   me: ME,
+  naver: NAVER,
+  naverCallback: NAVER_CALLBACK,
   kakao: KAKAO,
   kakaoCallback: KAKAO_CALLBACK,
   api: API,

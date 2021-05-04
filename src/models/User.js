@@ -2,11 +2,12 @@ import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
 
 const UserSchema = new mongoose.Schema({
-  name:String,
-  email:String,
-  avatarUrl:String,
-  kakaoId:Number,
-  githubId:Number,
+  name: String,
+  email: String,
+  avatarUrl: String,
+  kakaoId: Number,
+  githubId: Number,
+  naverId: String,
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,9 +20,8 @@ const UserSchema = new mongoose.Schema({
       ref: "Video",
     },
   ],
-}
-);
+});
 
-UserSchema.plugin(passportLocalMongoose, {usernameField: "email" });
-const model = mongoose.model("User" , UserSchema);
+UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });
+const model = mongoose.model("User", UserSchema);
 export default model;

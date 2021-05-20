@@ -21,12 +21,14 @@ import { onlyPrivate, onlyPublic } from "../middlewares";
 const globalRouter = express.Router();
 
 // Join
-globalRouter.get(routes.join, onlyPublic, getJoin);
-globalRouter.post(routes.join, onlyPublic, postJoin, postLogin);
+globalRouter
+  .route(routes.join)
+  .all(onlyPublic)
+  .get(getJoin)
+  .post(postJoin, postLogin);
 
 // Login
-globalRouter.get(routes.login, onlyPublic, getLogin);
-globalRouter.post(routes.login, onlyPublic, postLogin);
+globalRouter.route(routes.login).all(onlyPublic).get(getLogin).post(postLogin);
 
 // Home
 globalRouter.get(routes.home, home);

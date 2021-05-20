@@ -14,15 +14,21 @@ import { onlyPrivate, uploadVideo } from "../middlewares";
 const videoRouter = express.Router();
 
 // Upload
-videoRouter.get(routes.upload, onlyPrivate, getUpload);
-videoRouter.post(routes.upload, onlyPrivate, uploadVideo, postUpload);
+videoRouter
+  .route(routes.upload)
+  .all(onlyPrivate)
+  .get(getUpload)
+  .post(uploadVideo, postUpload);
 
 // VideoDetail
 videoRouter.get(routes.videoDetail(), videoDetail);
 
 // EditVideo
-videoRouter.get(routes.editVideo(), onlyPrivate, getEditVideo);
-videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo);
+videoRouter
+  .route(routes.editVideo())
+  .all(onlyPrivate)
+  .get(getEditVideo)
+  .post(postEditVideo);
 
 // DeleteVideo
 videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo);

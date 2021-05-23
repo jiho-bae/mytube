@@ -13,12 +13,12 @@ html
                 type:'error',
                 text:messages.error
             })
-        else if messages.info
+        if messages.info
             +message({
                 type:'info',
                 text:messages.info
             })
-        else if messages.success 
+        if messages.success 
             +message({
                 type:'success',
                 text:messages.success

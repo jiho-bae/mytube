@@ -11,12 +11,30 @@ const increaseNumber = () => {
 
 const addFakeComment = (comment) => {
   const li = document.createElement("li");
-  const span = document.createElement("span");
-  const smallSpan = document.createElement("span");
-  span.innerHTML = comment;
-  smallSpan.innerHTML = "Registered now";
-  li.appendChild(span);
-  li.appendChild(smallSpan);
+  const avatar = document.createElement("img");
+  const userDiv = document.createElement("div");
+  const userIdDiv = document.createElement("div");
+  const userId = document.createElement("a");
+  const notifySpan = document.createElement("span");
+  const userComment = document.createElement("p");
+  /*  const delCommentA = document.createElement("a");
+  const delCommentBtn = document.createElement("button");*/
+
+  userDiv.classList.add("u-comment");
+  userIdDiv.classList.add("u-comment-id");
+  avatar.classList.add("u-commenter-avatar");
+  avatar.src = comment.avatarUrl;
+  userId.href = `/users/${comment.creator}`;
+  userId.innerText = comment.name;
+  notifySpan.innerText = `방금 막`;
+  userComment.innerHTML = comment.text;
+
+  userIdDiv.appendChild(userId);
+  userIdDiv.appendChild(notifySpan);
+  userDiv.appendChild(userIdDiv);
+  userDiv.appendChild(userComment);
+  li.appendChild(avatar);
+  li.appendChild(userDiv);
   commentList.prepend(li);
   increaseNumber();
 };
@@ -32,7 +50,7 @@ const sendComment = async (comment) => {
     },
   });
   if (response.status === 200) {
-    addFakeComment(comment);
+    addFakeComment(response.data.newComment);
   }
 };
 
@@ -43,7 +61,6 @@ const handleSubmit = (event) => {
     commentInput.value = "";
   } else {
     const comment = commentInput.value;
-    console.log(comment);
     sendComment(comment);
     commentInput.value = "";
   }

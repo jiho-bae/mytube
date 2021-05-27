@@ -4,7 +4,11 @@ import passportLocalMongoose from "passport-local-mongoose";
 const UserSchema = new mongoose.Schema({
   name: String,
   email: String,
-  avatarUrl: String,
+  avatarUrl: {
+    type: String,
+    default:
+      "https://d1telmomo28umc.cloudfront.net/media/public/avatars/gobae-1610354539.jpg",
+  },
   kakaoId: Number,
   githubId: Number,
   naverId: String,

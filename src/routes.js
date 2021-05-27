@@ -20,7 +20,7 @@ const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
-const DELETE_COMMENT = "/:id/deleteComment";
+const DELETE_COMMENT = "/:videoId/:commentId/delete";
 
 // Github
 
@@ -94,7 +94,7 @@ const routes = {
   addComment: ADD_COMMENT,
   deleteComment: (videoId, commentId) => {
     if (videoId && commentId) {
-      return `/videos/${commentId}/deleteComment`;
+      return `/videos/${videoId}/${commentId}/delete`;
     } else {
       return DELETE_COMMENT;
     }

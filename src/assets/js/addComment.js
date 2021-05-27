@@ -17,6 +17,7 @@ const addFakeComment = (comment) => {
   const userId = document.createElement("a");
   const notifySpan = document.createElement("span");
   const userComment = document.createElement("p");
+  const delComment = document.createElement("a");
   /*  const delCommentA = document.createElement("a");
   const delCommentBtn = document.createElement("button");*/
 
@@ -28,6 +29,9 @@ const addFakeComment = (comment) => {
   userId.innerText = comment.name;
   notifySpan.innerText = `방금 막`;
   userComment.innerHTML = comment.text;
+  delComment.classList.add("delComment");
+  delComment.href = `/videos/${comment.videoId}/${comment["_id"]}/delete`;
+  delComment.innerHTML = `<button class="delCommentBtn id="JsDelCmtBtn"><i class="far fa-trash-alt"></i></button>`;
 
   userIdDiv.appendChild(userId);
   userIdDiv.appendChild(notifySpan);
@@ -35,6 +39,7 @@ const addFakeComment = (comment) => {
   userDiv.appendChild(userComment);
   li.appendChild(avatar);
   li.appendChild(userDiv);
+  li.appendChild(delComment);
   commentList.prepend(li);
   increaseNumber();
 };

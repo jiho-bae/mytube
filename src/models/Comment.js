@@ -15,6 +15,7 @@ const CommentSchema = new mongoose.Schema({
   },
   avatarUrl: String,
   name: String,
+  videoId: String,
 });
 
 const model = mongoose.model("Comment", CommentSchema);

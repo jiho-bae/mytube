@@ -143,22 +143,22 @@ export const postAddComment = async (req, res) => {
       creator: user.id,
       name: user.name,
       avatarUrl: user.avatarUrl,
+      videoId: id,
     });
     req.user.comments.push(newComment.id);
     req.user.save();
     video.comments.push(newComment.id);
     video.save();
+    res.json({ newComment });
   } catch (error) {
-    res.status(400);
-  } finally {
-    res.end();
+    res.status(404).end();
   }
 };
 
 // Delete Comment
 
 export const deleteComment = async (req, res) => {
-  const { id } = req.params;
+  const { videoId, commentId: id } = req.params;
   try {
     const comments = await Comment.findById(id);
     if (comments.creator.toString() !== req.user.id) {
@@ -170,6 +170,6 @@ export const deleteComment = async (req, res) => {
     console.log(error);
     res.status(400);
   } finally {
-    res.redirect("back");
+    res.redirect(`/videos/${videoId}`);
   }
 };

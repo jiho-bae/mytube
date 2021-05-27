@@ -4,7 +4,7 @@ include mixins/videoBlock
 block content
     .search__header
         h3 검색어 : 
-            span #{searchingBy}
+            span #{keyword}
     .search__videos
         if videos.length == 0
             h5 검색 결과가 없습니다.

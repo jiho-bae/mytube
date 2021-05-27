@@ -16,17 +16,19 @@ export const home = async (req, res) => {
 // Search
 
 export const search = async (req, res) => {
-  const { searchingBy } = req.query.term;
+  const { term: searchingBy } = req.query;
+  const keyword = searchingBy.trim();
   let videos = [];
+  if (keyword === "") return res.redirect(routes.home);
   try {
-    if (searchingBy === "") return res.redirect(routes.home);
     videos = await Video.find({
-      title: { $regex: searchingBy, $options: "i" },
+      title: { $regex: new RegExp(keyword, "i") },
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    res.render("search", { pageTitle: "Search", keyword, videos });
   }
-  return res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
 // Upload

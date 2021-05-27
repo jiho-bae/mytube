@@ -5,7 +5,7 @@ block content
         form(action=`/users${routes.editProfile}`, method="post", enctype="multipart/form-data")
             .fileUpload
                 label(for="avatar") Avatar
-                input(type="file", id="avatar", name="file", accept="image/*")
+                input(type="file", id="avatar", name="avatar", accept="image/*")
             input(type="text", placeholder="이름", name="name", value=loggedUser.name)
             input(type="email", placeholder="이메일", name="email", value=loggedUser.email)
             input(type="submit" , value="프로필 업데이트")

@@ -19,12 +19,12 @@
     }
     .video__title {
       margin-bottom: 10px;
-      font-size: 22px;
+      font-size: 2.2rem;
       font-weight: 600;
     }
     .video__views {
       margin-bottom: 30px;
-      font-size: 14px;
+      font-size: 1.4rem;
       color: $grey;
     }
 
@@ -37,12 +37,13 @@
       }
       .video__author-info {
         a {
+          font-size: 1.6rem;
           display: block;
           margin-bottom: 10px;
         }
         .video__description {
           margin-bottom: 15px;
-          font-size: 16px;
+          font-size: 1.4rem;
           font-weight: 400;
         }
       }
@@ -52,9 +53,11 @@
     padding: 0px 10px;
     width: 100%;
     max-width: 650px;
+    max-height: 30rem;
     margin: 25px 0px;
+    overflow-y: auto;
     .video__comment-number {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
     .add__comment {
       display: flex;
@@ -107,7 +110,7 @@
               width: min-content;
               color: $white;
               font-weight: 500;
-              font-size: 15px;
+              font-size: 1.5rem;
             }
             span {
               margin-left: 5px;
@@ -133,7 +136,7 @@
         }
         span:last-child {
           align-self: flex-end;
-          font-size: 8px;
+          font-size: 0.7rem;
         }
         &:not(:last-child) {
           margin-bottom: 15px;

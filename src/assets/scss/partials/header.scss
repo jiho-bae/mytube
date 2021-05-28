@@ -1,8 +1,8 @@
 .header {
-  padding: 0px 15px;
+  padding: 0 1.5rem;
   height: 100%;
   background-color: $black;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   .header__wrapper {
     margin: 0 auto;
 
@@ -20,14 +20,16 @@
           align-items: center;
           i {
             color: $red;
+            font-size: 2.5rem;
+            margin-right: 5px;
           }
           div {
-            width: 80px;
+            width: 8rem;
             height: 100%;
             display: flex;
             align-items: center;
             span {
-              font-size: 17px;
+              font-size: 1.7rem;
               font-weight: 500;
               position: absolute;
             }
@@ -36,8 +38,6 @@
       }
       i {
         color: gray;
-        font-size: 25px;
-        margin-right: 5px;
       }
       &:nth-child(2) {
         justify-self: center;
@@ -62,7 +62,7 @@
               background-color: $btn-grey;
             }
             i {
-              font-size: 14px;
+              font-size: 1.4rem;
             }
             ::placeholder {
               font-weight: 400;
@@ -79,7 +79,7 @@
         font-weight: 600;
         text-transform: uppercase;
         height: 100%;
-        font-size: 12px;
+        font-size: 1.2rem;
         li {
           height: 100%;
           display: flex;
@@ -91,6 +91,10 @@
         }
         li:hover {
           background-color: rgb(54, 54, 54);
+        }
+        i {
+          font-size: 1.8rem;
+          color: white;
         }
       }
     }

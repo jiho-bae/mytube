@@ -14,16 +14,16 @@
       &:not(:last-child) {
         margin-right: 5px;
       }
-      .video-info__name,
-      .video-info__views {
-        color: $grey;
-        font-size: 13px;
-      }
       .video-info__title {
         color: $white;
         font-size: 15px;
         font-weight: 400;
         margin-bottom: 10px;
+      }
+      .video-info__name,
+      .video-info__views {
+        color: $grey;
+        font-size: 13px;
       }
     }
   }

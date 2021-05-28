@@ -15,13 +15,16 @@ header.header
             ul
                 if !loggedUser
                     li
-                        a(href=routes.join) 회원가입
+                        a(href=routes.join) 가입
                     li
                         a(href=routes.login) 로그인
                 else
                     li
-                        a(href=`${routes.videos}${routes.upload}`) 업로드
+                        a(href=`${routes.videos}${routes.upload}`, alt="abcd")
+                            i.fas.fa-video
                     li
-                        a(href=routes.me) 프로필
+                        a(href=routes.logout)
+                            i.fas.fa-sign-out-alt
                     li
-                        a(href=routes.logout) 로그아웃
+                        a(href=routes.me)
+                            img.u-header-avatar(src=loggedUser.avatarUrl)

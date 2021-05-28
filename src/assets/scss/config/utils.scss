@@ -1,5 +1,6 @@
 .u-avatar,
-.u-commenter-avatar {
+.u-commenter-avatar,
+.u-header-avatar {
   background-image: url("https://d1telmomo28umc.cloudfront.net/media/public/avatars/gobae-1610354539.jpg");
   background-size: cover;
   border-radius: 50%;
@@ -14,6 +15,10 @@
   min-height: 33px;
   width: 33px;
   height: 33px;
+}
+.u-header-avatar {
+  width: 3rem;
+  height: 3rem;
 }
 .u-comment {
   display: flex;

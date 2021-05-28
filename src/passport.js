@@ -2,7 +2,6 @@ import passport from "passport";
 import GithubStrategy from "passport-github";
 import NaverStrategy from "passport-naver";
 import KakaoStrategy from "passport-kakao";
-import dotenv from "dotenv";
 import {
   kakaoLoginCallback,
   githubLoginCallback,
@@ -11,7 +10,6 @@ import {
 import User from "./models/User";
 import routes from "./routes";
 
-dotenv.config();
 passport.use(User.createStrategy());
 passport.use(
   new GithubStrategy(

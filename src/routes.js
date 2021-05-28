@@ -20,7 +20,7 @@ const UPLOAD = "/upload";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
-const DELETE_COMMENT = "/:videoId/:commentId/delete";
+const DELETE_COMMENT = "/:id/:cid/delete";
 
 // Github
 
@@ -50,38 +50,14 @@ const routes = {
   logout: LOGOUT,
   search: SEARCH,
   users: USERS,
-  userDetail: (id) => {
-    if (id) {
-      return `/users/${id}`;
-    } else {
-      return USER_DETAIL;
-    }
-  },
+  userDetail: (id) => (id ? `/users/${id}` : USER_DETAIL),
   editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
   videos: VIDEOS,
   upload: UPLOAD,
-  videoDetail: (id) => {
-    if (id) {
-      return `/videos/${id}`;
-    } else {
-      return VIDEO_DETAIL;
-    }
-  },
-  editVideo: (id) => {
-    if (id) {
-      return `/videos/${id}/edit`;
-    } else {
-      return EDIT_VIDEO;
-    }
-  },
-  deleteVideo: (id) => {
-    if (id) {
-      return `/videos/${id}/delete`;
-    } else {
-      return DELETE_VIDEO;
-    }
-  },
+  videoDetail: (id) => (id ? `/videos/${id}` : VIDEO_DETAIL),
+  editVideo: (id) => (id ? `/videos/${id}/edit` : EDIT_VIDEO),
+  deleteVideo: (id) => (id ? `/videos/${id}/delete` : DELETE_VIDEO),
   github: GITHUB,
   githubCallback: GITHUB_CALLBACK,
   me: ME,
@@ -93,11 +69,9 @@ const routes = {
   registerView: REGISTER_VIEW,
   addComment: ADD_COMMENT,
   deleteComment: (videoId, commentId) => {
-    if (videoId && commentId) {
-      return `/videos/${videoId}/${commentId}/delete`;
-    } else {
-      return DELETE_COMMENT;
-    }
+    return videoId && commentId
+      ? `/videos/${videoId}/${commentId}/delete`
+      : DELETE_COMMENT;
   },
 };
 

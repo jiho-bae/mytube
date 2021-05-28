@@ -31,7 +31,7 @@
     "get-blob-duration": "^1.1.2",
     "helmet": "^4.3.1",
     "mini-css-extract-plugin": "^1.5.0",
-    "mongoose": "^5.11.11",
+    "mongoose": "^5.11.15",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
@@ -54,7 +54,7 @@
     "webpack-cli": "^4.3.1"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:server": "nodemon --delay 2",
     "dev:assets": "cd src && WEBPACK_ENV=development webpack -w",
     "build:assets": "cd src && WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",

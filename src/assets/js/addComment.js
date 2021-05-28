@@ -46,7 +46,6 @@ const addFakeComment = (comment) => {
 
 const sendComment = async (comment) => {
   const videoId = window.location.href.split("/videos/")[1];
-  console.log(comment);
   const response = await axios({
     url: `/api/${videoId}/comment`,
     method: "POST",
@@ -54,7 +53,7 @@ const sendComment = async (comment) => {
       comment,
     },
   });
-  if (response.status === 200) {
+  if (response.status === 200 && response.data !== "") {
     addFakeComment(response.data.newComment);
   }
 };

@@ -133,6 +133,7 @@ export const postRegisterView = async (req, res) => {
 // Add Comment
 
 export const postAddComment = async (req, res) => {
+  if (req.user === undefined) return res.end();
   const {
     params: { id },
     body: { comment },
@@ -160,18 +161,18 @@ export const postAddComment = async (req, res) => {
 // Delete Comment
 
 export const deleteComment = async (req, res) => {
-  const { videoId, commentId: id } = req.params;
+  const { id, cid } = req.params;
   try {
-    const comments = await Comment.findById(id);
+    const comments = await Comment.findById(cid);
     if (comments.creator.toString() !== req.user.id) {
       throw Error();
     } else {
-      await Comment.findOneAndRemove({ _id: id });
+      await Comment.findOneAndRemove({ _id: cid });
     }
   } catch (error) {
     console.log(error);
     res.status(400);
   } finally {
-    res.redirect(`/videos/${videoId}`);
+    res.redirect(`/videos/${id}`);
   }
 };

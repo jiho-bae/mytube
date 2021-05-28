@@ -25,7 +25,10 @@ block content
                 span#jsCommentNumber=video.comments.length
                 |개
             form.add__comment#jsAddComment
-                input(type="text", placeholder="댓글 추가...")
+                if loggedUser
+                    input(type="text", placeholder="댓글 추가...")
+                else
+                    input(type="text", placeholder="로그인 후 댓글 작성 가능" disabled)
                 button 댓글
             ul.video__comments-list#jsCommentList
                 each comment in video.comments.reverse()

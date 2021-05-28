@@ -8,6 +8,7 @@
     max-height: 225px;
   }
   .video-info {
+    margin-left: 10px;
     display: flex;
     margin-bottom: 20px;
     .video-info__column {
@@ -20,10 +21,14 @@
         font-weight: 400;
         margin-bottom: 10px;
       }
-      .video-info__name,
-      .video-info__views {
+      .video-info__name {
         color: $grey;
         font-size: 13px;
+        margin-bottom: 2px;
+      }
+      .video-info__views {
+        color: $grey;
+        font-size: 11px;
       }
     }
   }

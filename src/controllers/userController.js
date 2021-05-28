@@ -172,9 +172,11 @@ export const getEditProfile = (req, res) => {
   res.render("editProfile", { pageTitle: "Edit Profile" });
 };
 export const postEditProfile = async (req, res) => {
-  const { name, email } = req.body;
+  const { name, email, password } = req.body;
   const { file } = req;
   try {
+    const isOk = await req.user.authenticate(password);
+    if (isOk.error) throw 403;
     await User.findByIdAndUpdate(req.user.id, {
       name,
       email,
@@ -183,8 +185,12 @@ export const postEditProfile = async (req, res) => {
     req.flash("success", "프로필 업데이트");
     return res.redirect(routes.me);
   } catch (error) {
-    req.flash("error", "프로필을 업데이트 할 수 없습니다.");
-    return res.redirect(routes.editProfile);
+    const errorMsg =
+      error === 403
+        ? "비밀번호가 일치하지 않습니다."
+        : "프로필을 업데이트 할 수 없습니다.";
+    req.flash("error", errorMsg);
+    return res.redirect(`/users${routes.editProfile}`);
   }
 };
 
@@ -196,10 +202,11 @@ export const getChangePassword = (req, res) =>
 export const postChangePassword = async (req, res) => {
   const { oldPassword, newPassword, newPassword1 } = req.body;
   if (newPassword !== newPassword1) {
-    req.flash("error", "새 비밀번호가 서로 다릅니다.");
+    req.flash("error", "입력한 새 비밀번호가 서로 다릅니다.");
     return res.status(400).redirect(`/users/${routes.changePassword}`);
   }
   try {
+    console.log(req.user);
     await req.user.changePassword(oldPassword, newPassword);
     return res.redirect(routes.me);
   } catch (error) {

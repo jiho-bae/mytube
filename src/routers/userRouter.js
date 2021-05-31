@@ -7,7 +7,7 @@ import {
   getChangePassword,
   postChangePassword,
 } from "../controllers/userController";
-import { onlyPrivate, uploadAvatar } from "../middlewares";
+import { onlyPrivate, awsUploadAvatar } from "../middlewares";
 
 const userRouter = express.Router();
 
@@ -15,7 +15,7 @@ userRouter
   .route(routes.editProfile)
   .all(onlyPrivate)
   .get(getEditProfile)
-  .post(uploadAvatar, postEditProfile);
+  .post(awsUploadAvatar, postEditProfile);
 
 userRouter
   .route(routes.changePassword)

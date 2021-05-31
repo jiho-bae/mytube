@@ -7,7 +7,7 @@ block content
             button#jsRecordBtn 녹화하기
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             .fileUpload
-                label(for="file") Video File
+                label(for="file") 비디오
                 input(type="file", id="file", name="videoFile", required=true, accept="video/*")
             input(type="text", placeholder="제목", name="title", required=true)
             textarea(name="description", placeholder="설명", required=true)

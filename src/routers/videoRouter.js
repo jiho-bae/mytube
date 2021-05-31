@@ -9,7 +9,7 @@ import {
   getEditVideo,
   deleteComment,
 } from "../controllers/videoController";
-import { onlyPrivate, uploadVideo } from "../middlewares";
+import { onlyPrivate, awsUploadVideo, awsDeleteVideo } from "../middlewares";
 
 const videoRouter = express.Router();
 
@@ -18,7 +18,7 @@ videoRouter
   .route(routes.upload)
   .all(onlyPrivate)
   .get(getUpload)
-  .post(uploadVideo, postUpload);
+  .post(awsUploadVideo, postUpload);
 
 // VideoDetail
 videoRouter.get(routes.videoDetail(), videoDetail);
@@ -31,7 +31,7 @@ videoRouter
   .post(postEditVideo);
 
 // DeleteVideo
-videoRouter.get(routes.deleteVideo(), onlyPrivate, deleteVideo);
+videoRouter.get(routes.deleteVideo(), onlyPrivate, awsDeleteVideo, deleteVideo);
 
 // DeleteComment
 videoRouter.get(routes.deleteComment(), onlyPrivate, deleteComment);

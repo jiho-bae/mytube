@@ -108,8 +108,10 @@ export const deleteVideo = async (req, res) => {
       throw Error();
     }
     await Video.findOneAndRemove({ _id: id });
+    req.flash("success", "비디오 삭제 완료.");
   } catch (error) {
     console.log(error);
+    req.flash("error", "비디오 삭제 실패.");
   }
   res.redirect(routes.home);
 };

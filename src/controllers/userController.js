@@ -1,6 +1,7 @@
 import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
+import s3 from "../awsS3";
 
 // Join
 
@@ -177,6 +178,22 @@ export const postEditProfile = async (req, res) => {
   try {
     const isOk = await req.user.authenticate(password);
     if (isOk.error) throw 403;
+    if (file.location) {
+      const url = req.user.avatarUrl.split("/");
+      const delFileName = url[url.length - 1];
+      const params = {
+        Bucket: "mytubeee/avatar",
+        Key: delFileName,
+      };
+      s3.deleteObject(params, (err, data) => {
+        if (err) {
+          console.log("error : cannot delete aws avatar object");
+          console.log(err, err.stack);
+          return res.end();
+        }
+        console.log("success delete aws Avatar!");
+      });
+    }
     await User.findByIdAndUpdate(req.user.id, {
       name,
       email,

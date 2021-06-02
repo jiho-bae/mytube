@@ -150,7 +150,7 @@ export const getMe = async (req, res) => {
   const { id } = req.user;
   try {
     const user = await User.findById(id).populate("videos");
-    return res.render("userDetail", { pageTitle: "My Info", user });
+    return res.render("users/userDetail", { pageTitle: "My Info", user });
   } catch (error) {
     console.log(error);
     return res.redirect(routes.home);
@@ -161,7 +161,7 @@ export const userDetail = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findById(id).populate("videos");
-    return res.render("userDetail", { pageTitle: "asdfer", user });
+    return res.render("users/userDetail", { pageTitle: "asdfer", user });
   } catch (error) {
     req.flash("error", "사용자가 존재하지 않습니다");
     return res.redirect(routes.home);
@@ -170,7 +170,7 @@ export const userDetail = async (req, res) => {
 // EditProfile
 
 export const getEditProfile = (req, res) => {
-  res.render("editProfile", { pageTitle: "Edit Profile" });
+  res.render("users/editProfile", { pageTitle: "Edit Profile" });
 };
 export const postEditProfile = async (req, res) => {
   const { name, email, password } = req.body;
@@ -214,7 +214,7 @@ export const postEditProfile = async (req, res) => {
 // ChangePassword
 
 export const getChangePassword = (req, res) =>
-  res.render("changePassword", { pageTitle: "Change Password" });
+  res.render("users/changePassword", { pageTitle: "Change Password" });
 
 export const postChangePassword = async (req, res) => {
   const { oldPassword, newPassword, newPassword1 } = req.body;
@@ -223,11 +223,10 @@ export const postChangePassword = async (req, res) => {
     return res.status(400).redirect(`/users/${routes.changePassword}`);
   }
   try {
-    console.log(req.user);
     await req.user.changePassword(oldPassword, newPassword);
     return res.redirect(routes.me);
   } catch (error) {
     req.flash("error", "비밀번호 변경에 실패하였습니다.");
-    return res.redirect(`/users/${routes.changePassword}`);
+    return res.status(400).redirect(`/users/${routes.changePassword}`);
   }
 };

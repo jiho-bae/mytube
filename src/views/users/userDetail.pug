@@ -1,5 +1,5 @@
-extends layouts/main
-include mixins/videoBlock
+extends ../layouts/main
+include ../mixins/videoBlock
 
 block content
     .user-profile
@@ -19,5 +19,7 @@ block content
                     id:video.id,
                     title:video.title,
                     views:video.views,
-                    videoFile:video.fileUrl
+                    creator:video.creator,
+                    videoFile:video.fileUrl,
+                    avatarUrl : video.avatarUrl,
                 })

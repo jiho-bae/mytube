@@ -34,7 +34,7 @@ export const search = async (req, res) => {
 // Upload
 
 export const getUpload = (req, res) =>
-  res.render("upload", { pageTitle: "Upload" });
+  res.render("videos/upload", { pageTitle: "Upload" });
 
 export const postUpload = async (req, res) => {
   const {
@@ -63,7 +63,7 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
-    return res.render("videoDetail", { pageTitle: video.title, video });
+    return res.render("videos/videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     console.log(error);
     return res.redirect(routes.home);
@@ -79,7 +79,10 @@ export const getEditVideo = async (req, res) => {
     if (video.creator.toString() !== req.user.id) {
       throw Error();
     }
-    return res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+    return res.render("videos/editVideo", {
+      pageTitle: `Edit ${video.title}`,
+      video,
+    });
   } catch (error) {
     return res.redirect(routes.home);
   }
@@ -104,6 +107,12 @@ export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   try {
     const video = await Video.findById(id);
+    console.log(video);
+    if (video.comments.length) {
+      await Promise.all(
+        video.comments.map((comment) => Comment.findByIdAndRemove(comment))
+      );
+    }
     if (video.creator.toString() !== req.user.id) {
       throw Error();
     }
@@ -113,7 +122,7 @@ export const deleteVideo = async (req, res) => {
     console.log(error);
     req.flash("error", "비디오 삭제 실패.");
   }
-  res.redirect(routes.home);
+  return res.redirect(routes.home);
 };
 
 // register video View

@@ -46,3 +46,7 @@ block content
                         if loggedUser && comment.creator == loggedUser.id
                             a.delComment(href=routes.deleteComment(video.id,comment.id))
                                 button.delCommentBtn#jsDelCmtBtn <i class="far fa-trash-alt"></i>
+
+block scripts
+    script(src="/static/videoPlayer.js")
+    script(src="/static/addComment.js")

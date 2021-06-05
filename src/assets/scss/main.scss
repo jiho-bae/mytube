@@ -6,6 +6,9 @@ html {
     font-size: 50%;
   }
 }
+input[type="submit"] {
+  -webkit-appearance: none;
+}
 
 body {
   height: 100vh;

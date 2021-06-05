@@ -1,6 +1,8 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import Comment from "../models/Comment";
+import User from "../models/User";
+
 // Home
 
 export const home = async (req, res) => {
@@ -130,9 +132,7 @@ export const deleteVideo = async (req, res) => {
 export const postRegisterView = async (req, res) => {
   const { id } = req.params;
   try {
-    const video = await Video.findById(id);
-    video.views += 1;
-    video.save();
+    await Video.findByIdAndUpdate(id, { $inc: { views: 1 } });
     res.status(200);
   } catch (error) {
     res.status(400);
@@ -151,7 +151,6 @@ export const postAddComment = async (req, res) => {
     user,
   } = req;
   try {
-    const video = await Video.findById(id);
     const newComment = await Comment.create({
       text: comment,
       creator: user.id,
@@ -159,10 +158,9 @@ export const postAddComment = async (req, res) => {
       avatarUrl: user.avatarUrl,
       videoId: id,
     });
+    await Video.findByIdAndUpdate(id, { $push: { comments: newComment.id } });
     req.user.comments.push(newComment.id);
     req.user.save();
-    video.comments.push(newComment.id);
-    video.save();
     res.json({ newComment });
   } catch (error) {
     res.status(404).end();
@@ -172,13 +170,17 @@ export const postAddComment = async (req, res) => {
 // Delete Comment
 
 export const deleteComment = async (req, res) => {
-  const { id, cid } = req.params;
+  const {
+    params: { id, cid },
+    user,
+  } = req;
   try {
     const comments = await Comment.findById(cid);
-    if (comments.creator.toString() !== req.user.id) {
+    if (comments.creator.toString() !== user.id) {
       throw Error();
     } else {
       await Comment.findOneAndRemove({ _id: cid });
+      await User.findByIdAndUpdate(user.id, { $pull: { comments: cid } });
     }
   } catch (error) {
     console.log(error);

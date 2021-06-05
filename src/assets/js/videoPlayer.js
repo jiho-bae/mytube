@@ -73,30 +73,19 @@ const formatDate = (seconds) => {
   let minutes = Math.floor((secondsNumber - hours * 3600) / 60);
   let totalSeconds = secondsNumber - hours * 3600 - minutes * 60;
 
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-  if (seconds < 10) {
-    totalSeconds = `0${totalSeconds}`;
-  }
-  if (hours < 1) {
-    return `${minutes}:${totalSeconds}`;
-  } else {
-    return `${hours}:${minutes}:${totalSeconds}`;
-  }
+  if (hours < 10) hours = `0${hours}`;
+  if (minutes < 10) minutes = `0${minutes}`;
+  if (seconds < 10) totalSeconds = `0${totalSeconds}`;
+
+  return hours < 1
+    ? `${minutes}:${totalSeconds}`
+    : `${hours}:${minutes}:${totalSeconds}`;
 };
 
 const setCurrentTime = (seconds) => {
   const secondsNumber = parseInt(seconds, 10);
   const hours = Math.floor(secondsNumber / 3600);
-  if (hours < 1) {
-    return `00:00`;
-  } else {
-    return `00:00:00`;
-  }
+  return hours < 1 ? `00:00` : `00:00:00`;
 };
 
 function getCurrentTime() {
